@@ -1,0 +1,4 @@
+setwd("C:/Users/ENKHUY/Documents/TRAINING/R/Gy/MTNSA")
+
+write.csv(mscc,"mscc.csv")
+# write mscc proccessed data to file
