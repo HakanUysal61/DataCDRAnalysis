@@ -187,3 +187,19 @@ png(file="plot50.png")
 hist(na.omit(occData2$duration),breaks=60,main="Duration per Services",col="blue",
      xlab="Duration(sec)",freq=TRUE,xlim=c(0,59))
 dev.off()
+
+png(file="plot51.png",width = 1024,heigh=768)
+occData %>% 
+  ggplot( aes(x=endTime,y=volume/1024/1024)) +
+  geom_line(color="blue",size=0.2)+ 
+  facet_wrap(.~serviceId,strip.position = "top",dir="v")+
+  labs(title="service based volume",x="Time",y="Volume(MB)")
+dev.off()
+
+png(file="plot52.png",width = 1024,heigh=768)
+occData %>% 
+  ggplot( aes(x=endTime,y=volume/1024/1024)) +
+  geom_line(color="blue",size=0.2)+ 
+  facet_wrap(.~daID,strip.position = "top",dir="v")+
+  labs(title="da based volume",x="Time",y="Volume(MB)")
+dev.off()
